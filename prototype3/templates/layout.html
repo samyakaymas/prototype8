@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>
+      {%block title%}
+      {%endblock%}
+</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" >
+<style>
+  body {
+    margin: 0%;
+  }
+  ul#nav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 15%;
+    background-color: #f1f1f1;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+  }
+  #nav li .navin {
+    display: block;
+    color: #000;
+    padding: 8px 16px;
+    text-decoration: none;
+  }
+  #nav li a {
+    display: block;
+    color: #000;
+    padding: 8px 16px;
+    text-decoration: none;
+  }
+  
+  #nav li a.active {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  #nav li a:hover:not(.active) {
+    background-color: #555;
+    color: white;
+  }
+  </style>
+  {% block style %}
+  {% endblock %}
+</head>
+<body>
+  <ul id="nav">
+    <li><a href="/">Home</a></li>
+    <li><a href="/theory/showTheory">Theory List</a></li>
+    <li><a href="/theory/QuesTag">Tag Questions</a></li>
+    <li><a href="/theory/quesview">Tagged Questions Preview</a></li>
+    <li><a href="/theory/cross">Cross Concept Questions Add/Edit</a></li>
+    <li><a href="/theory/crossview">Cross Concept Question Preview</a></li>
+    <li><a href="/signout">Logout</a></li>
+    <li><div class="navin">Name: {{ request.user.first_name }} {{ request.user.last_name }}</div></li>
+    <li><div class="navin">Subject : {{ request.user.subject }}</div></li>
+    <li><div class="navin">Chapter: {{ request.user.chapter }}</div></li>
+  </ul>
+
+  <div style="margin-left:15.5%; height: 200%;">
+    {% block content %}
+    {% endblock %}
+    <br><br><br>
+  </div>
+    
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+{% block script %}
+{% endblock %}
+  </body>
+</html>
